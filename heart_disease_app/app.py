@@ -1,3 +1,5 @@
+import os
+st.write(os.listdir())
 import streamlit as st
 import pandas as pd
 import joblib
@@ -48,3 +50,6 @@ if st.button("Predict Risk"):
         st.error(f"⚠ HIGH RISK ({prob:.2%})")
     else:
         st.success(f"✅ LOW RISK ({prob:.2%})")
+model = joblib.load("heart_disease_app/heart_model.pkl")
+model_columns = joblib.load("heart_disease_app/model_columns.pkl")
+
